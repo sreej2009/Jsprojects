@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="counter" />
+    <title>Counter</title>
+    <style>
+      *,
+      *::after,
+      *::before {
+        margin: 0;
+        padding: 0;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        background: black;
+      }
+      .container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+      }
+      .card-body {
+        background: #fff;
+        padding: 25px;
+        border-radius: 10px;
+        text-align: center;
+      }
+      .card-body h1 {
+        margin-bottom: 15px;
+        font-size: 70px;
+      }
+      .card-btn button {
+        border-radius: 5px;
+        color: #262626;
+        padding: 10px 35px;
+        border: 0;
+        font-size: 15px;
+        font-weight: bold;
+        margin: 0 5px;
+        cursor: pointer;
+        transition: 0.5s;
+      }
+
+      #increment:hover {
+        background: #009432;
+        color: #fff;
+      }
+      #reset:hover {
+        background: #f3a683;
+        color: #fff;
+      }
+      #decrement:hover {
+        background: #f79f1f;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card-body">
+        <h1 id="title">0</h1>
+        <div class="card-btn">
+          <button id="decrement">Decrement</button>
+          <button id="reset">Reset</button>
+          <button id="increment">Increment</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const mainTitle = document.querySelector("#title");
+      let curValue = 0;
+
+      const btnDecrement = document.querySelector("#decrement");
+      const btnReset = document.querySelector("#reset");
+      const btnIncrement = document.querySelector("#increment");
+
+      btnIncrement.addEventListener("click", () => {
+        curValue++;
+        mainTitle.textContent = curValue;
+      });
+
+      btnDecrement.addEventListener("click", () => {
+        curValue--;
+        mainTitle.textContent = curValue;
+      });
+
+      btnReset.addEventListener("click", () => {
+        curValue = 0;
+        mainTitle.textContent = curValue;
+      });
+    </script>
+  </body>
+</html>

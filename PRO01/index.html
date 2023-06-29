@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="color-fliper" />
+    <title>color-fliper</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: purple;
+      }
+      .container {
+        height: 320px;
+        width: 50%;
+        padding: 20px;
+        position: relative;
+        background: blueviolet;
+        box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+        border-radius: 10px;
+      }
+      .color-card {
+        background-color: greenyellow;
+        position: absolute;
+        width: 280px;
+        height: 280px;
+        top: 40px;
+        left: -50px;
+        box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset,
+          rgba(50, 50, 93, 0.25) 0px 50px 108px -20px,
+          rgba(0, 0, 0, 0.3) 0px 30px 60px - 30px;
+        border-radius: 30px 0px 30px 30px;
+      }
+      .content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        height: 300px;
+        margin-left: 150px;
+      }
+      #hex {
+        display: block;
+        color-scheme: #fff;
+        font-size: 40px;
+        margin: 20px;
+        text-transform: uppercase;
+      }
+      button {
+        background: transparent;
+
+        padding: 8px 20px;
+        font-size: 22px;
+        /* color: #fff; */
+      }
+      button:hover {
+        border-radius: 30px;
+        color: #fff;
+        background-color: black;
+        box-shadow: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="color-card"></div>
+      <div class="content">
+        <span id="hex">#f77754 </span>
+        <button>New Color</button>
+      </div>
+    </div>
+    <script>
+      let container = document.querySelector(".container");
+      let colorcard = document.querySelector(".color-card");
+      let btn = document.querySelector("buttom");
+      let hex = document.querySelector("span");
+
+      function newColor() {
+        let symbols = "0123456789ABCDEF";
+        let color = "#";
+        for (var i = 0; i < 6; i++) {
+          color = color + symbols[Math.floor(Math.random() * 15)];
+        }
+        document.body.style.background = color;
+
+        colorcard.style.background = color;
+        hex.innerHTML = color;
+      }
+      btn, addEventListener("click", newColor);
+    </script>
+  </body>
+</html>
